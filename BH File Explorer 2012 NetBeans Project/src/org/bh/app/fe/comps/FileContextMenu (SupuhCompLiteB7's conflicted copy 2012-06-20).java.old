@@ -1,0 +1,88 @@
+package org.bh.app.fe.comps;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.KeyStroke;
+
+/**
+ * FileContextMenu, made for BH File Explorer, is made by and copyrighted to Blue Husky Programming, ©2012.<hr/>
+ * A class that contains actions to be done to a file in a JPopupMenu
+ * @author Supuhstar of Blue Husky Programming
+ * @since Jan 7, 2012
+ * @version 1.0.0
+ * @see JPopupMenu
+ */
+public class FileContextMenu extends JPopupMenu
+{
+  private ActionListener renAL, delAL;
+  private File[] target;
+  private JMenuItem renameMenuItem, deleteMenuItem;
+  
+  public FileContextMenu(File... initTarget)
+  {
+    target = initTarget;
+    initGUI();
+  }
+  
+  private void initGUI()
+  {
+    renameMenuItem = new JMenuItem("Rename", KeyEvent.VK_R);
+    renameMenuItem.setAccelerator(KeyStroke.getKeyStroke('R', InputEvent.CTRL_DOWN_MASK));
+    renameMenuItem.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+        renAL.actionPerformed(e);
+      }
+    });
+    add(renameMenuItem);
+    
+    deleteMenuItem = new JMenuItem("Delete", KeyEvent.VK_DELETE);
+    deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
+    deleteMenuItem.addActionListener(new ActionListener()
+    {
+      @Override
+      public void actionPerformed(ActionEvent e)
+      {
+        delAL.actionPerformed(e);
+      }
+    });
+    add(deleteMenuItem);
+  }
+
+  public File[] getTarget()
+  {
+    return target;
+  }
+
+  public void setTarget(File... newTarget)
+  {
+    target = newTarget;
+  }
+  
+  public void setRenameActionListener(ActionListener al)
+  {
+    renAL = al;
+  }
+  
+  public ActionListener getRenameActionListener()
+  {
+    return renAL;
+  }
+  
+  public void setDeleteActionListener(ActionListener al)
+  {
+    delAL = al;
+  }
+  
+  public ActionListener getDeleteActionListener()
+  {
+    return delAL;
+  }
+}

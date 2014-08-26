@@ -1,0 +1,120 @@
+package org.bh.app.fe;
+
+import org.bh.app.fe.comps.FileBrowser;
+import org.bh.app.fe.comps.SettingsPanel;
+import org.bh.app.fe.events.DisplayChangeListener;
+import org.bh.app.fe.events.DisplayEvent;
+import bht.tools.Constants;
+import bht.tools.comps.BHFrame;
+import bht.tools.fx.Colors;
+import bht.tools.fx.CompAction;
+import bht.tools.fx.LookAndFeelChanger;
+import bht.tools.util.ArrayPP;
+import bht.tools.util.math.Numbers;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.AccessDeniedException;
+import java.util.Arrays;
+
+/**
+ * 
+ * @author Supuhstar
+ */
+public class GUI extends BHFrame
+{private long start=System.nanoTime();
+  //<editor-fold defaultstate="collapsed" desc="Objects">
+  //<editor-fold defaultstate="collapsed" desc="Components">
+  private ArrayPP<FileBrowser> mainBrowsers;
+  private javax.swing.JTabbedPane browserTabs;
+  //</editor-fold>
+  
+  //</editor-fold>
+  
+  @SuppressWarnings("UseOfSystemOutOrSystemErr")
+  public GUI(final File... initPaths) throws FileNotFoundException, AccessDeniedException
+  {
+    super(Main.TITLE, Main.VERSION, Colors.DEFAULT, LookAndFeelChanger.DEFAULT, false);
+    long last = System.nanoTime(), begin, end;
+    String n = getClass().getName();
+    System.out.println(n + ": Uncontrolled initialization complete (took " + Numbers.groupDigits(last-start) + "ns). Now creating a new GUI...");
+    
+    System.out.println(n + ": Initializing browser array...");
+    begin = System.nanoTime();
+    
+    mainBrowsers = new ArrayPP<>(initPaths.length);
+    for (int i=0; i < initPaths.length; i++)
+    {
+      mainBrowsers.set(i, new FileBrowser(initPaths[i]));
+      final int I = i;
+      mainBrowsers.get(i).addExceptionHandler(new ExceptionHandler()
+      {
+        @Override
+        public void exceptionThrown(Throwable t)
+        {
+          CompAction.flash(getThis(), true);
+          alertOf(t);
+          Main.log.logThrowable(t, "bhfe.GUI#GUI(" + Arrays.toString(initPaths) + "); //Initialiing browser for " + initPaths[I]);
+        }
+      });
+      mainBrowsers.get(i).addDisplayChangeListener(new DisplayChangeListener()
+      {
+
+        @Override
+        public void displayChanged(DisplayEvent de)
+        {
+          alertOf("Navigated to " + mainBrowsers.get(I).getCurrentDirName(), Constants.INFO_MES);
+        }
+      });
+    }
+    
+    last = System.nanoTime();
+    System.out.println(n + ": Browser array initialized (took " + Numbers.groupDigits(last-begin) + "ns). Initializing and adding internal components...");
+    begin = System.nanoTime();
+    
+    initComponents();
+    
+    last = System.nanoTime();
+    System.out.println(n + ": Internal components initialized and added (took " + Numbers.groupDigits(last-begin) + "ns). Loading tabs...");
+    begin = System.nanoTime();
+    
+    reloadTabs();
+    
+    last = System.nanoTime();
+    System.out.println(n + ": Tabs loaded (took " + Numbers.groupDigits(last-begin) + "ns).");
+//    begin = System.nanoTime();
+    
+    last = System.nanoTime();
+    System.out.println(n + ": Creation complete. (took " + Numbers.groupDigits(last-start) + "ns; " + ((double)(last-start) / 1000000000) + "s). Initializing browser array...");
+  }
+  
+  @SuppressWarnings("FinalPrivateMethod")
+  private final GUI getThis()
+  {
+    return this;
+  }
+
+  private void initComponents()
+  {
+    setLayout(new java.awt.GridBagLayout());
+    java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+    
+    browserTabs = new javax.swing.JTabbedPane(javax.swing.JTabbedPane.TOP, javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+    gbc.weightx=1;
+    gbc.weighty=1;
+    gbc.fill=java.awt.GridBagConstraints.BOTH;
+    add(browserTabs, gbc);
+    
+    addSettingsPanel(new SettingsPanel(), Main.TITLE);
+    
+    pack();
+  }
+
+  private void reloadTabs()
+  {
+    browserTabs.removeAll();
+    for (FileBrowser f : mainBrowsers)
+      browserTabs.addTab(f.getCurrentDirName(), f);
+    
+    pack();
+  }
+}
