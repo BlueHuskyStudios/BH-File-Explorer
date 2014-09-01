@@ -8,7 +8,7 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <project name="BH_File_Explorer_2014_NetBeans_Project" default="default" basedir=".">
-    <description>Builds, tests, and runs the project BH_File_Explorer_2014_NetBeans_Project.</description>
+    <description>Builds, tests, and runs the project BH File Explorer 2014 NetBeans Project.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

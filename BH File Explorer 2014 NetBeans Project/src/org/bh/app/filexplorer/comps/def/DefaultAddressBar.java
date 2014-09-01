@@ -12,6 +12,8 @@ import org.bh.app.filexplorer.comps.struct.AddressBar;
  */
 public class DefaultAddressBar extends AddressBar
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 
 	public DefaultAddressBar()
 	{

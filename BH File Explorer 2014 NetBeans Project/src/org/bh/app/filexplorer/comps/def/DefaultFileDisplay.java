@@ -13,6 +13,8 @@ import org.bh.app.filexplorer.util.BHFile;
  */
 public class DefaultFileDisplay extends FileDisplay
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	private BHFile dir;
 
 	public DefaultFileDisplay(File dir)

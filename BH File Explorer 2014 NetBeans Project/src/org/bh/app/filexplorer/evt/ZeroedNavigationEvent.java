@@ -11,6 +11,8 @@ import bht.tools.comps.event.NavigationEvent;
  */
 public class ZeroedNavigationEvent extends NavigationEvent
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 
 	public ZeroedNavigationEvent(
 			Object source,

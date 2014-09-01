@@ -7,8 +7,19 @@ import javax.swing.JComponent;
 import org.bh.app.filexplorer.evt.AddressBarListener;
 import org.bh.app.filexplorer.evt.AddressChangeEvent;
 
+/**
+ * AddressBar, made for BH File Explorer 2014 NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
+ * 
+ * An address bar is where the user can view and modify the URI corresponding to the current directory.
+ * 
+ * @author Kyli of Blue Husky Programming
+ * @version 1.0.0
+ * @since 2014-08-21
+ */
 public abstract class AddressBar extends JComponent
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	private File currentFile;
 	private ArrayPP<AddressBarListener> addressBarListeners = new ArrayPP<AddressBarListener>();
 

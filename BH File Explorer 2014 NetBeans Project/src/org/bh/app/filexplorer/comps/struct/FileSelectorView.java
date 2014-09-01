@@ -15,6 +15,8 @@ import javax.swing.JComponent;
  */
 public abstract class FileSelectorView extends JComponent
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	public abstract File[] getDisplayedFiles();
 	public abstract void displayDirectory(File newDirectory);
 }

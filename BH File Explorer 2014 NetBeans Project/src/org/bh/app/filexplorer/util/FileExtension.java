@@ -1,9 +1,6 @@
 package org.bh.app.filexplorer.util;
 
 import bht.tools.util.ArrayPP;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * FileExtension, made for BH File Explorer NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
@@ -16,6 +13,8 @@ import java.util.Iterator;
  */
 public class FileExtension extends ArrayPP<CharSequence> implements CharSequence
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	/**
 	 * Creates a new {@code FileExtension} using the given {@link CharSequence}s. More than one can be specified for extensions
 	 * like {@code .tar.gz}

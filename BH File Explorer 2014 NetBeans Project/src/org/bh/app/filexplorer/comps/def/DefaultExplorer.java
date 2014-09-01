@@ -16,6 +16,8 @@ import org.bh.app.filexplorer.comps.struct.Explorer;
  */
 public class DefaultExplorer extends Explorer
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	public DefaultExplorer()
 	{
 		initGUI();

@@ -6,7 +6,7 @@
             <extension file="build-native.xml" id="j2sedeploy"/>
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>BH_File_Explorer_2014_NetBeans_Project</name>
+            <name>BH File Explorer 2014 NetBeans Project</name>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

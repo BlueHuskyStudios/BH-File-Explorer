@@ -13,6 +13,8 @@ import static bht.tools.util.Do.s;
  */
 public class MIME_Extension
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	private MIMEType mime;
 	private FileExtension[] exts;
 

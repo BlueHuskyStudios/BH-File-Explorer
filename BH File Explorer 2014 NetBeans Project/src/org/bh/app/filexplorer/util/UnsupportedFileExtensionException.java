@@ -10,6 +10,8 @@ package org.bh.app.filexplorer.util;
  */
 public class UnsupportedFileExtensionException extends Exception
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	FileExtension[] supportedExtensions, unsupportedExtensions;
 	
 	/**

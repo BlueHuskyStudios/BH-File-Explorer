@@ -14,5 +14,7 @@ import javax.swing.JApplet;
  */
 public abstract class Explorer extends JApplet
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	public abstract BrowsingPane getBrowsingPane();
 }

@@ -11,13 +11,22 @@ import org.bh.app.filexplorer.comps.struct.FileDisplay;
 /**
  * DefaultBrowsingPane, made for BH File Explorer 2014 NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
  * 
+ * Contains tabs containing {@link FileDisplay}s. If created by passing a {@link File}, they're {@link DefaultFileDisplay}s.
+ * 
  * @author Kyli of Blue Husky Programming
  * @version 1.0.0
  * @since 2014-08-24
  */
 public class DefaultBrowsingPane extends BrowsingPane
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	private final ArrayPP<FileDisplay> displays;
+	
+	public DefaultBrowsingPane()
+	{
+		displays = new ArrayPP<>();
+	}
 	
 	public DefaultBrowsingPane(File... initialDirs)
 	{
@@ -26,11 +35,10 @@ public class DefaultBrowsingPane extends BrowsingPane
 			displays.add(new DefaultFileDisplay(dir));
 		initGUI();
 	}
-
-	@Override
-	public FileDisplay[] getFileDisplays()
+	
+	public DefaultBrowsingPane(FileDisplay... initialDisplays)
 	{
-		return displays.toArray();
+		displays = new ArrayPP<>(initialDisplays);
 	}
 
 	private JTabbedPane displaysTabbedPane;
@@ -49,6 +57,28 @@ public class DefaultBrowsingPane extends BrowsingPane
 			add(addressBar, BorderLayout.NORTH);
 		}
 	}
+	
+	public void addDisplay(FileDisplay newFileDisplay)
+	{
+		displays.add(newFileDisplay);
+	}
+	
+	public void addDisplay(File newFileToDisplay)
+	{
+		displays.add(new DefaultFileDisplay(newFileToDisplay));
+	}
+
+	//<editor-fold defaultstate="collapsed" desc="Overrides">
+	@Override
+	public FileDisplay[] getFileDisplays()
+	{
+		return displays.toArray();
+	}
+	//</editor-fold>
+	
+	
+	
+	
 	
 	public static final String inventTabTitleFor(FileDisplay display)
 	{

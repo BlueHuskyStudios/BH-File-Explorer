@@ -19,6 +19,8 @@ import static org.bh.app.filexplorer.util.ZipFileFile.isZip;
  */
 public class BHFile extends File
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	/**
 	 * Calls {@link File#File(String)}
 	 * @param pathname passed to {@link File#File(String)}

@@ -13,6 +13,8 @@ import java.io.FilenameFilter;
  */
 public class FilterDelegate
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	Object filter;
 	
 	public FilterDelegate(FileFilter fileFilter)

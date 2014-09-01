@@ -14,5 +14,7 @@ import javax.swing.JComponent;
  */
 public abstract class BrowsingPane extends JComponent
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	public abstract FileDisplay[] getFileDisplays();
 }

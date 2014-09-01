@@ -12,6 +12,8 @@ import bht.tools.comps.event.NavigationEvent.NavigationState;
  */
 public class AddressChangeEvent extends NavigationEvent
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 
 	public AddressChangeEvent(Object source,
 							  Number oldPosition,

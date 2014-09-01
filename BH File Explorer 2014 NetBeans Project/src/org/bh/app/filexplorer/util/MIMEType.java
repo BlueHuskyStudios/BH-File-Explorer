@@ -9,6 +9,8 @@ package org.bh.app.filexplorer.util;
  */
 public class MIMEType
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	public static final String
 		STANDARDS_TYPE_APPLICATION = "application",
 		STANDARDS_TYPE_AUDIO       = "audio",

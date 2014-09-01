@@ -26,6 +26,8 @@ import java.util.zip.ZipFile;
  */
 public class ZipFileFile extends BHFile
 {
+	private static final long serialVersionUID = 0x1_000_000L;
+	
 	/**
 	 * Calls {@link BHFile#BHFile(String)}
 	 * @param pathname A pathname string
