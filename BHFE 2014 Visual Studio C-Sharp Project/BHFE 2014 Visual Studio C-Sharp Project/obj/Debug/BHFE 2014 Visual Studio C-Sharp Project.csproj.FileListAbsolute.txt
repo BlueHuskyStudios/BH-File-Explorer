@@ -1,0 +1,9 @@
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\bin\Debug\BHFE 2014 Visual Studio C-Sharp Project.exe.config
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\bin\Debug\BHFE 2014 Visual Studio C-Sharp Project.exe
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\bin\Debug\BHFE 2014 Visual Studio C-Sharp Project.pdb
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE 2014 Visual Studio C-Sharp Project.csprojResolveAssemblyReference.cache
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE_2014_Visual_Studio_C_Sharp_Project.Properties.Resources.resources
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE 2014 Visual Studio C-Sharp Project.csproj.GenerateResource.Cache
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE 2014 Visual Studio C-Sharp Project.exe
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE 2014 Visual Studio C-Sharp Project.pdb
+C:\Users\Kyli\Documents\GitHub\BH-File-Explorer\BHFE 2014 Visual Studio C-Sharp Project\BHFE 2014 Visual Studio C-Sharp Project\obj\Debug\BHFE_2014_Visual_Studio_C_Sharp_Project.MainWindow.resources

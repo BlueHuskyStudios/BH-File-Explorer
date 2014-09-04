@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BHFE_2014_Visual_Studio_C_Sharp_Project.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BHFE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BHFE - Loading...</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
