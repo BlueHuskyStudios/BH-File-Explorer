@@ -2,16 +2,19 @@ package org.bh.app.filexplorer.util;
 
 import bht.tools.util.ArrayPP;
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static org.bh.app.filexplorer.util.ZipFileFile.ZIP_EXTENSIONS;
-import static org.bh.app.filexplorer.util.ZipFileFile.isZip;
 
 /**
  * BHFile, made for BH File Explorer NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
+ * 
+ * Simply adds convenience methods to File
  * 
  * @author Kyli of Blue Husky Programming
  * @version 1.0.0
@@ -78,6 +81,7 @@ public class BHFile extends File
 		return getFileExtension(this);
 	}
 	
+	@SuppressWarnings({"BroadCatchBlock", "TooBroadCatch"})
 	public static BHFile valueOf(File aFile)
 	{
 		if (aFile instanceof ZipFileFile)
@@ -110,5 +114,35 @@ public class BHFile extends File
 		{
 			return new BHFile(aFile.getPath());
 		}
+	}
+
+	/**
+	 * Attempts to rewrite
+	 * @param newName
+	 * @throws NewNameExistsException 
+	 */
+	public void rename(String newName) throws NewNameExistsException
+	{
+		if (!rename(newName, false))
+			throw new NewNameExistsException();
+	}
+
+	public boolean rename(String newName, boolean replace)
+	{
+		try
+		{
+			File newFile = new File(getParent(), newName);
+			
+			if (!replace && newFile.exists())
+				return false;
+			
+			Files.move(toPath(), newFile.toPath());
+		}
+		catch (IOException ex)
+		{
+			Logger.getLogger(BHFile.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
+			return false;
+		}
+		return true;
 	}
 }

@@ -1,9 +1,6 @@
 package org.bh.app.filexplorer.comps.def;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import org.bh.app.filexplorer.comps.struct.AddressBar;
 import org.bh.app.filexplorer.comps.struct.BrowsingPane;
 import org.bh.app.filexplorer.comps.struct.Explorer;
 
@@ -36,10 +33,9 @@ public class DefaultExplorer extends Explorer
 		//<editor-fold defaultstate="collapsed" desc="Browsing Pane">
 		{
 			browsingPane = new DefaultBrowsingPane();
-			add(browsingPane);
+			add(browsingPane, BorderLayout.CENTER);
 		}
 		//</editor-fold>
-		
 	}
 
 	@Override

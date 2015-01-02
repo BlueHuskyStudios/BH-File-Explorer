@@ -2,6 +2,9 @@ package org.bh.app.filexplorer.evt;
 
 import bht.tools.comps.event.NavigationEvent;
 import bht.tools.comps.event.NavigationEvent.NavigationState;
+import java.io.File;
+import java.io.Serializable;
+import java.util.EventObject;
 
 /**
  * FileTreeChangeEvent, made for BH File Explorer 2014 NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
@@ -10,12 +13,12 @@ import bht.tools.comps.event.NavigationEvent.NavigationState;
  * @version 1.0.0
  * @since 2014-09-04
  */
-public class FileTreeChangeEvent
+public class FileTreeChangeEvent extends EventObject implements Serializable
 {
 	private static final long serialVersionUID = 0x1_000_000L;
 	
-	private FileTreeChangeType type;
-	private File oldFile, newFile;
+	public final FileTreeChangeType TYPE;
+	public final File OLD_FILE, NEW_FILE;
 
 	public FileTreeChangeEvent(Object source,
 							   FileTreeChangeType type,
@@ -23,9 +26,9 @@ public class FileTreeChangeEvent
 							   File newFile)
 	{
 		super(source);
-		this.type = type;
-		this.oldFile = oldFile;
-		this.newFile = newFile;
+		this.TYPE = type;
+		this.OLD_FILE = oldFile;
+		this.NEW_FILE = newFile;
 	}
 	
 	public static enum FileTreeChangeType

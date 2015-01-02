@@ -20,7 +20,7 @@ public abstract class AddressBar extends JComponent
 {
 	private static final long serialVersionUID = 0x1_000_000L;
 	
-	private File currentFile;
+	protected File currentFile;
 	private ArrayPP<AddressBarListener> addressBarListeners = new ArrayPP<AddressBarListener>();
 
 	public AddressBar(File initCurrentFile)

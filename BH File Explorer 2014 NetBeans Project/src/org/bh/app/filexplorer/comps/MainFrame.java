@@ -1,6 +1,7 @@
 package org.bh.app.filexplorer.comps;
 
 import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -18,24 +19,9 @@ public class MainFrame extends JFrame implements WindowListener
 {
 	private static final long serialVersionUID = 0x1_000_000L;
 
-	public MainFrame() throws HeadlessException
+	public MainFrame(String title)
 	{
-		this("", null);
-	}
-
-	public MainFrame(GraphicsConfiguration gc)
-	{
-		this("", gc);
-	}
-
-	public MainFrame(String title) throws HeadlessException
-	{
-		this(title, null);
-	}
-
-	public MainFrame(String title, GraphicsConfiguration gc)
-	{
-		super(title, gc);
+		super(title);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(this);
 	}

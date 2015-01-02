@@ -1,14 +1,16 @@
 package org.bh.app.filexplorer;
 
+import bht.tools.fx.LookAndFeelChanger;
+import bht.tools.net.upd.Version;
+import bht.tools.net.upd.Version.Channel;
 import bht.tools.util.save.general.ObjectSaver;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bh.app.filexplorer.comps.def.DefaultExplorer;
 import org.bh.app.filexplorer.comps.MainFrame;
+import org.bh.app.filexplorer.comps.def.DefaultExplorer;
 import org.bh.app.filexplorer.comps.struct.Explorer;
 
 /**
@@ -21,13 +23,16 @@ import org.bh.app.filexplorer.comps.struct.Explorer;
 public class Main
 {
 	public static final String APP_NAME = "BH File Explorer";
-	public static final String APP_VERSION = "1.0.0";
+	public static final Version APP_VERSION = new Version(1,0,0).setChannel(Channel.LAMBDA);
+	public static final String APP_VERSION_STR = APP_VERSION.toString();
 	private static final String MAIN_FRAME_NAME = "mainFrame";
 	
 	private static final Explorer EXPLORER;
 	
 	static
 	{
+		LookAndFeelChanger.setLookAndFeel(LookAndFeelChanger.SYSTEM);
+		
 		EXPLORER = fetchSavedExplorer();
 	}
 	
@@ -50,9 +55,10 @@ public class Main
 			Logger.getGlobal().log(Level.WARNING, "Could not load " + MAIN_FRAME_NAME, t);
 		}
 		if (mainFrame == null)
-			mainFrame = new MainFrame();
+			mainFrame = new MainFrame(APP_NAME);
 		mainFrame.addWindowListener(new SaveOnCloseWindowListener());
 		mainFrame.setContentPane(EXPLORER);
+		mainFrame.pack();
 		mainFrame.setVisible(true);
 		
 	}

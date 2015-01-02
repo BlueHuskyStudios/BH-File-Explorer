@@ -1,6 +1,7 @@
 package org.bh.app.filexplorer.util;
 
 import bht.tools.util.ArrayPP;
+import static bht.tools.util.Do.s;
 
 /**
  * FileExtension, made for BH File Explorer NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
@@ -25,13 +26,17 @@ public class FileExtension extends ArrayPP<CharSequence> implements CharSequence
 		super(extension);
 	}
 	
+	
+	String cache;
 	@Override
 	public String toString()
 	{
+		if (cache != null)
+			return cache;
 		StringBuilder ret = new StringBuilder();
 		for(CharSequence cs : t)
 			ret.append(".").append(cs);
-		return ret.toString();
+		return cache = ret.toString();
 	}
 
 	@Override
@@ -100,6 +105,6 @@ public class FileExtension extends ArrayPP<CharSequence> implements CharSequence
 	 */
 	public boolean equals(FileExtension other)
 	{
-		return other.toString().equalsIgnoreCase(toString());
+		return s(other).equalsIgnoreCase(toString());
 	}
 }

@@ -7,6 +7,9 @@ import javax.swing.JTabbedPane;
 import org.bh.app.filexplorer.comps.struct.AddressBar;
 import org.bh.app.filexplorer.comps.struct.BrowsingPane;
 import org.bh.app.filexplorer.comps.struct.FileDisplay;
+import static org.bh.app.filexplorer.lang.Language.inventTabTitleFor;
+import org.bh.app.filexplorer.util.DefaultFileDisplayFactory;
+import org.bh.app.filexplorer.util.HomeFolder;
 
 /**
  * DefaultBrowsingPane, made for BH File Explorer 2014 NetBeans Project, is copyright Blue Husky Programming ©2014 CC 3.0 BY-SA<HR/>
@@ -25,7 +28,7 @@ public class DefaultBrowsingPane extends BrowsingPane
 	
 	public DefaultBrowsingPane()
 	{
-		displays = new ArrayPP<>();
+		this(new FileDisplay[]{new DefaultFileDisplay(new HomeFolder())});
 	}
 	
 	public DefaultBrowsingPane(File... initialDirs)
@@ -39,15 +42,16 @@ public class DefaultBrowsingPane extends BrowsingPane
 	public DefaultBrowsingPane(FileDisplay... initialDisplays)
 	{
 		displays = new ArrayPP<>(initialDisplays);
+		initGUI();
 	}
 
-	private JTabbedPane displaysTabbedPane;
+	private BHFETabbedPane displaysTabbedPane;
 	private AddressBar addressBar;
 	private void initGUI()
 	{
 		setLayout(new BorderLayout());
 		{
-			displaysTabbedPane = new JTabbedPane();
+			displaysTabbedPane = new BHFETabbedPane(new DefaultFileDisplayFactory());
 			for (FileDisplay display : displays)
 				displaysTabbedPane.addTab(inventTabTitleFor(display), display);
 			add(displaysTabbedPane, BorderLayout.CENTER);
@@ -75,13 +79,4 @@ public class DefaultBrowsingPane extends BrowsingPane
 		return displays.toArray();
 	}
 	//</editor-fold>
-	
-	
-	
-	
-	
-	public static final String inventTabTitleFor(FileDisplay display)
-	{
-		return display.getCurrentDirectory().getName();
-	}
 }
